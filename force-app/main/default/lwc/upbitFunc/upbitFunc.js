@@ -1,11 +1,11 @@
 import { LightningElement, wire } from 'lwc';
-import getUpbitMarketData from '@salesforce/apex/UpbitFuncController.init';
+import init from '@salesforce/apex/UpbitFuncController.init';
 
 export default class UpbitFunc extends LightningElement {
     marketData;
 
-    @wire(getUpbitMarketData)
-    wiredMarketData({ error, data }) {
+    @wire(init)
+    wireInit({ error, data }) {
         if (data) {
             this.marketData = data;
         } else if (error) {
