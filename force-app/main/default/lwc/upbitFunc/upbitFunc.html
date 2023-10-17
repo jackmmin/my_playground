@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="업비트 종목 정보">
+        <div class="slds-m-around_medium">
+            <template if:true={marketData}>
+                <ul>
+                    <template for:each={marketData} for:item="item">
+                        <li key={item.id}>{item.name} - {item.price}</li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={marketData}>
+                데이터를 불러올 수 없습니다.
+            </template>
+        </div>
+    </lightning-card>
+</template>
